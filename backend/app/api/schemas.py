@@ -46,6 +46,7 @@ class DataSourceResponse(BaseModel):
     source_type: str
     status: str
     last_sync_at: Optional[datetime] = None
+    sync_error: Optional[str] = None
     created_at: datetime
 
     class Config:

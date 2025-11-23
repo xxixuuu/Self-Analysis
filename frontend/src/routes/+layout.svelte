@@ -25,6 +25,10 @@
 			<a href="/" class="btn btn-ghost text-xl">
 				LifeMetrics
 			</a>
+			<ul class="menu menu-horizontal px-1 hidden md:flex">
+				<li><a href="/dashboard">📊 Dashboard</a></li>
+				<li><a href="/sources">🔗 Data Sources</a></li>
+			</ul>
 		</div>
 		<div class="flex-none gap-2">
 			<!-- Theme toggle -->
