@@ -1,0 +1,92 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+ENV/
+env/
+
+# Node
+node_modules/
+.npm
+.pnpm-debug.log*
+.yarn-integrity
+.svelte-kit/
+build/
+.vercel/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Data (CRITICAL: Never commit personal data)
+data/postgres/*
+data/redis/*
+data/minio/*
+*.db
+*.sqlite
+*.duckdb
+
+# Logs
+*.log
+logs/
+celerybeat-schedule
+celerybeat.pid
+
+# ML Models
+ml/models/*.pt
+ml/models/*.pth
+ml/models/*.h5
+ml/models/*.pkl
+
+# Secrets
+secrets/
+*.key
+*.pem
+*.crt
+
+# Backups
+backups/
+*.sql.gz
+*.tar.gz
+
+# Cache
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Docker volumes
+docker/volumes/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
