@@ -33,7 +33,12 @@ celery_app.conf.update(
 
 # Configure periodic tasks
 celery_app.conf.beat_schedule = {
-    # Collect GitHub data every hour
+    # Collect all data every hour
+    "collect-all-data-hourly": {
+        "task": "app.tasks.collection.collect_all_data",
+        "schedule": crontab(minute=0),  # Every hour
+    },
+    # Collect GitHub data every hour (legacy, use collect-all-data instead)
     "collect-github-data-hourly": {
         "task": "app.tasks.collection.collect_all_github_data",
         "schedule": crontab(minute=0),  # Every hour
