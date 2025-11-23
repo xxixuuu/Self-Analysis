@@ -47,12 +47,14 @@
 - ネットワーク分析 (人間関係の可視化)
 
 ### 🎨 リッチなビジュアライゼーション
-- インタラクティブグラフ (D3.js + Chart.js)
-- ヒートマップ (時間帯別活動)
-- ネットワークグラフ (人間関係)
-- ワードクラウド (頻出単語)
-- サンキーダイアグラム (時間配分)
-- カスタムレポートビルダー
+- **Chart.js**: 折れ線グラフ、棒グラフ、ドーナツグラフ
+- **D3.js高度な可視化**:
+  - ネットワークグラフ: インタラクティブな力学的配置によるデータ関係性の可視化
+  - ヒートマップ: 時間帯別活動パターンのカラーグラデーション表示
+  - タイムラインブラシ: 時系列データの対話的探索とズーム機能
+  - サンバーストチャート: 階層データの円形可視化とドリルダウン
+- **レスポンシブデザイン**: すべてのグラフがモバイル対応
+- **ダークモード対応**: 目に優しいテーマ切替
 
 ## 技術スタック
 
@@ -132,29 +134,40 @@ docker exec -it lifemetrics-ollama ollama pull mistral
 
 ## データソースの接続
 
+アプリケーションにログイン後、http://localhost:3000/sources にアクセスしてデータソースを接続できます。
+
 ### 1. GitHub
 
 1. [GitHub OAuth App](https://github.com/settings/developers)を作成
-2. Callback URL: `http://localhost:3000/auth/github/callback`
+2. Callback URL: `http://localhost:8000/api/oauth/github/callback`
 3. Client IDとSecretを`.env`に設定
-4. ダッシュボードから「Connect GitHub」をクリック
+4. データソースページから「GitHub」の「接続」ボタンをクリック
 
 ### 2. Google (Gmail, Calendar)
 
 1. [Google Cloud Console](https://console.cloud.google.com/)でプロジェクト作成
 2. Gmail API, Calendar APIを有効化
 3. OAuth 2.0 認証情報を作成
-4. Callback URL: `http://localhost:3000/auth/google/callback`
+4. Callback URL: `http://localhost:8000/api/oauth/google/callback`
 5. Client IDとSecretを`.env`に設定
+6. データソースページから「Gmail」または「Google Calendar」の「接続」ボタンをクリック
 
 ### 3. Twitter/X
 
 1. [Twitter Developer Portal](https://developer.twitter.com/)でアプリ作成
 2. OAuth 2.0を有効化
-3. Callback URL: `http://localhost:3000/auth/twitter/callback`
+3. Callback URL: `http://localhost:8000/api/oauth/twitter/callback`
 4. Client IDとSecretを`.env`に設定
+5. データソースページから「Twitter/X」の「接続」ボタンをクリック
 
-詳細は[docs/API_SETUP.md](docs/API_SETUP.md)を参照してください。
+詳細は[docs/SETUP.md](docs/SETUP.md)を参照してください。
+
+### データ収集
+
+接続されたデータソースは：
+- **自動同期**: 1時間ごとに自動的にデータを収集
+- **手動同期**: データソースページから「同期」ボタンでいつでも手動実行可能
+- **増分収集**: 前回の同期以降の新しいデータのみを収集（効率的）
 
 ## 使い方
 

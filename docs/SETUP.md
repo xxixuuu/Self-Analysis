@@ -145,11 +145,12 @@ docker exec -it lifemetrics-backend alembic upgrade head
 3. 以下を設定:
    - Application name: `LifeMetrics`
    - Homepage URL: `http://localhost:3000`
-   - Authorization callback URL: `http://localhost:3000/auth/github/callback`
+   - Authorization callback URL: `http://localhost:8000/api/oauth/github/callback`
 4. 作成後、Client IDとClient Secretを`.env`に設定:
    ```bash
    GITHUB_CLIENT_ID=your_client_id
    GITHUB_CLIENT_SECRET=your_client_secret
+   GITHUB_REDIRECT_URI=http://localhost:8000/api/oauth/github/callback
    ```
 
 ### Google (Gmail, Calendar)
@@ -161,11 +162,12 @@ docker exec -it lifemetrics-backend alembic upgrade head
    - Google Calendar API
 4. 「認証情報」→「OAuth 2.0クライアントID」を作成:
    - アプリケーションの種類: Webアプリケーション
-   - 承認済みのリダイレクトURI: `http://localhost:3000/auth/google/callback`
+   - 承認済みのリダイレクトURI: `http://localhost:8000/api/oauth/google/callback`
 5. Client IDとClient Secretを`.env`に設定:
    ```bash
    GOOGLE_CLIENT_ID=your_client_id
    GOOGLE_CLIENT_SECRET=your_client_secret
+   GOOGLE_REDIRECT_URI=http://localhost:8000/api/oauth/google/callback
    ```
 
 ### Twitter/X
@@ -173,11 +175,12 @@ docker exec -it lifemetrics-backend alembic upgrade head
 1. https://developer.twitter.com/ にアクセス
 2. 「Projects & Apps」→「Create App」
 3. OAuth 2.0を有効化
-4. Callback URL: `http://localhost:3000/auth/twitter/callback`
+4. Callback URL: `http://localhost:8000/api/oauth/twitter/callback`
 5. Client IDとClient Secretを`.env`に設定:
    ```bash
    TWITTER_CLIENT_ID=your_client_id
    TWITTER_CLIENT_SECRET=your_client_secret
+   TWITTER_REDIRECT_URI=http://localhost:8000/api/oauth/twitter/callback
    ```
 
 ## トラブルシューティング
