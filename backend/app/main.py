@@ -107,9 +107,9 @@ async def root():
     }
 
 
-# API Router (to be implemented)
-# from app.api import router as api_router
-# app.include_router(api_router, prefix="/api")
+# API Router
+from app.api.router import api_router
+app.include_router(api_router)
 
 
 if __name__ == "__main__":
